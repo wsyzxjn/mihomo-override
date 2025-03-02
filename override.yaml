@@ -79,7 +79,7 @@ proxy-groups:
       - 韩国节点
       - 手动切换
       - DIRECT
-  - name: 下载服务
+  - name: 海外下载
     type: select
     proxies:
       - 无倍率节点
@@ -563,9 +563,9 @@ rule-providers:
     interval: 86400
     format: yaml
     type: http
-  Download:
-    url: https://github.com/wsyzxjn/clash-rules/raw/refs/heads/main/direct-top.yaml
-    path: ./ruleset/Download.yaml
+  Download-Proxy:
+    url: https://github.com/wsyzxjn/clash-rules/raw/refs/heads/main/download-proxy.yaml
+    path: ./ruleset/Download-Proxy.yaml
     behavior: classical
     interval: 86400
     format: yaml
@@ -575,7 +575,7 @@ rule-providers:
 rules:
   - "IN-USER,tgsave,下载服务"
   - "RULE-SET,Direct-Top,全球直连"
-  - "RULE-SET,Download,下载服务"
+  - "RULE-SET,Download-Proxy,下载服务"
   - "RULE-SET,Proxy-Top,节点选择"
   - "RULE-SET,LocalAreaNetwork,DIRECT"
   - "RULE-SET,UnBan,全球直连"
