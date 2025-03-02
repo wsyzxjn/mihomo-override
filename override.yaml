@@ -573,8 +573,8 @@ rule-providers:
     
 
 rules:
-  - "DOMAIN,aquadx.hydev.org,美国节点"
-  - "DOMAIN,aquadx.net,美国节点"
+  - "DOMAIN,aquadx.hydev.org,节点选择"
+  - "DOMAIN,aquadx.net,节点选择"
   - "IN-USER,tgsave,海外下载"
   - "RULE-SET,Direct-Top,全球直连"
   - "RULE-SET,Download-Proxy,海外下载"
