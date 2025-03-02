@@ -79,6 +79,13 @@ proxy-groups:
       - 韩国节点
       - 手动切换
       - DIRECT
+  - name: 下载服务
+    type: select
+    proxies:
+      - 无倍率节点
+      - 节点选择
+      - 手动切换
+      - DIRECT
   - name: 巴哈姆特
     icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Bahamut.png
     type: select
@@ -556,10 +563,19 @@ rule-providers:
     interval: 86400
     format: yaml
     type: http
+  Download:
+    url: https://github.com/wsyzxjn/clash-rules/raw/refs/heads/main/direct-top.yaml
+    path: ./ruleset/Download.yaml
+    behavior: classical
+    interval: 86400
+    format: yaml
+    type: http
+    
 
 rules:
-  - "IN-USER,tgsave,无倍率节点"
+  - "IN-USER,tgsave,下载服务"
   - "RULE-SET,Direct-Top,全球直连"
+  - "RULE-SET,Download,下载服务"
   - "RULE-SET,Proxy-Top,节点选择"
   - "RULE-SET,LocalAreaNetwork,DIRECT"
   - "RULE-SET,UnBan,全球直连"
