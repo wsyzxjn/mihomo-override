@@ -573,9 +573,9 @@ rule-providers:
     
 
 rules:
-  - "IN-USER,tgsave,下载服务"
+  - "IN-USER,tgsave,海外下载"
   - "RULE-SET,Direct-Top,全球直连"
-  - "RULE-SET,Download-Proxy,下载服务"
+  - "RULE-SET,Download-Proxy,海外下载"
   - "RULE-SET,Proxy-Top,节点选择"
   - "RULE-SET,LocalAreaNetwork,DIRECT"
   - "RULE-SET,UnBan,全球直连"
