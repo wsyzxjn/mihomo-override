@@ -1,3 +1,14 @@
+geox-url:
+  geoip: "https://raw.githubusercontent.com/Loyalsoldier/geoip/release/geoip.dat"
+  geosite: "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/geosite.dat"
+  asn: "https://raw.githubusercontent.com/Loyalsoldier/geoip/release/GeoLite2-ASN.mmdb"
+geo-auto-update: true
+geo-update-interval: 24
+global-ua: clash.meta
+tcp-concurrent: true
+unified-delay: true
+find-process-mode: strict
+  
 proxy-groups:
   - name: 节点选择
     icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Proxy.png
