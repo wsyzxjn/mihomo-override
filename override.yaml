@@ -242,6 +242,12 @@ proxy-groups:
     proxies:
       - REJECT
       - DIRECT
+  - name: SSH连接
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/SSH.png
+    type: select
+    proxies:
+      - DIRECT
+      - 节点选择
   - name: 漏网之鱼
     icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Final.png
     type: select
@@ -582,6 +588,13 @@ rule-providers:
     interval: 86400
     format: yaml
     type: http
+  ChinaASN:
+    url: https://raw.githubusercontent.com/VirgilClyne/GetSomeFries/main/ruleset/ASN.China.yaml
+    path: ./ruleset/ASN.China.yaml
+    behavior: classical
+    interval: 86400
+    format: yaml
+    type: http
     
 
 rules:
@@ -620,6 +633,7 @@ rules:
   - "RULE-SET,ChinaDomain,全球直连"
   - "RULE-SET,ChinaCompanyIp,全球直连"
   - "RULE-SET,Download,全球直连"
+  - "DST-PORT,22,SSH连接"
   - "GEOIP,HK,香港节点"
   - "GEOIP,TW,台湾节点"
   - "GEOIP,SG,新加坡节点"
@@ -628,6 +642,7 @@ rules:
   - "GEOIP,KR,韩国节点"
   - "RULE-SET,Direct-Bottom,全球直连"
   - "RULE-SET,ProxyGFWlist,节点选择"
+  - "RULE-SET,ChinaASN,全球直连"
   - "GEOSITE,CN,全球直连"
   - "GEOIP,CN,全球直连"
   - "DST-PORT,80/443,漏网之鱼"
