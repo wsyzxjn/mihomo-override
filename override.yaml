@@ -47,7 +47,7 @@ proxy-groups:
       - 韩国节点
       - 手动切换
       - DIRECT
-  - name: OpenAi
+  - name: AiStudio
     icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Bot.png
     type: select
     proxies:
@@ -434,12 +434,12 @@ rule-providers:
     interval: 86400
     format: text
     type: http
-  OpenAi:
-    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/OpenAi.list
-    path: ./ruleset/OpenAi.list
+  AiStudio:
+    url: https://github.com/dler-io/Rules/raw/refs/heads/main/Clash/Provider/AI%20Suite.yaml
+    path: ./ruleset/AiStudio.list
     behavior: classical
     interval: 86400
-    format: text
+    format: yaml
     type: http
   NetEaseMusic:
     url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/NetEaseMusic.list
@@ -616,7 +616,7 @@ rules:
   - "RULE-SET,Microsoft,微软服务"
   - "RULE-SET,Apple,苹果服务"
   - "RULE-SET,Telegram,电报消息"
-  - "RULE-SET,OpenAi,OpenAi"
+  - "RULE-SET,AiStudio,Aistudio"
   - "RULE-SET,NetEaseMusic,网易音乐"
   - "RULE-SET,Epic,游戏平台"
   - "RULE-SET,Origin,游戏平台"
