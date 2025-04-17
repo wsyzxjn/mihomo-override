@@ -30,7 +30,7 @@ proxy-groups:
   - name: 自动选择
     icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Auto.png
     type: url-test
-    include-all: true
+    include-all-proxies: true
     interval: 300
     tolerance: 50
   - name: 电报消息
@@ -311,7 +311,7 @@ proxy-groups:
     filter: (?i)NF|奈飞|解锁|Netflix|NETFLIX|Media
     type: select
   - name: 无倍率节点
-    include-all: true
+    include-all-proxies: true
     type: load-balance
     exclude-filter: (?!)x|×\s?[02-9](\d+)?
   - name: GLOBAL
