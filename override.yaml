@@ -639,5 +639,6 @@ rules:
   - "RULE-SET,ChinaASN,全球直连"
   - "GEOSITE,CN,全球直连"
   - "GEOIP,CN,全球直连"
-  - "DST-PORT,80/443,漏网之鱼"
+  - "DST-PORT,443,漏网之鱼"
+  - "DST-PORT,80,漏网之鱼"
   - "MATCH,DIRECT"
