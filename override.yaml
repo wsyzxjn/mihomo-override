@@ -31,6 +31,7 @@ proxy-groups:
     icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Auto.png
     type: url-test
     include-all-proxies: true
+    filter: 🇭🇰|🇯🇵|🇼🇸|🇺🇸|🇰🇷|🇸🇬
     interval: 300
     tolerance: 50
   - name: 电报消息
