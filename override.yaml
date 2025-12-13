@@ -59,7 +59,7 @@ dns:
 proxy-groups:
   - name: 自动选择
     type: url-test
-    tolerance: 10
+    tolerance: 30
     proxies: [香港, 台湾, 日本, 新加坡, 美国]
 
   - name: 手动选择
@@ -116,37 +116,43 @@ proxy-groups:
 
   #分隔,下面是地区分组
   - name: 香港
-    type: select
+    type: url-test
+    tolerance: 30
     include-all: true
     exclude-type: direct
     filter: "(?i)港|hk|hongkong|hong kong"
 
   - name: 台湾
-    type: select
+    type: url-test
+    tolerance: 30
     include-all: true
     exclude-type: direct
     filter: "(?i)台|tw|taiwan"
 
   - name: 日本
-    type: select
+    type: url-test
+    tolerance: 30
     include-all: true
     exclude-type: direct
     filter: "(?i)日|jp|japan"
 
   - name: 美国
-    type: select
+    type: url-test
+    tolerance: 30
     include-all: true
     exclude-type: direct
     filter: "(?i)美|us|unitedstates|united states"
 
   - name: 新加坡
-    type: select
+    type: url-test
+    tolerance: 30
     include-all: true
     exclude-type: direct
     filter: "(?i)(新|sg|singapore)"
 
   - name: 其它地区
-    type: select
+    type: url-test
+    tolerance: 30
     include-all: true
     exclude-type: direct
     filter: "(?i)^(?!.*(?:🇭🇰|🇯🇵|🇺🇸|🇸🇬|🇨🇳|港|hk|hongkong|台|tw|taiwan|日|jp|japan|新|sg|singapore|美|us|unitedstates)).*"
@@ -154,6 +160,7 @@ proxy-groups:
 
 rules:
   - RULE-SET,private_ip,DIRECT,no-resolve
+  - RULE-SET,ai_suite,AI Suite
   - RULE-SET,github_domain,Github
   - RULE-SET,twitter_domain,Twitter
   - RULE-SET,youtube_domain,YouTube
