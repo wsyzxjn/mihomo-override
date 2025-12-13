@@ -68,51 +68,51 @@ proxy-groups:
 
   - name: Google
     type: select
-    proxies: [手动选择,香港,台湾,日本,新加坡,美国,其它地区,全部节点,自动选择,直连]
+    proxies: [手动选择,香港,台湾,日本,新加坡,美国,其它地区,自动选择,DIRECT]
 
   - name: AI Suite
     type: select
-    proxies: [手动选择,香港,台湾,日本,新加坡,美国,其它地区,全部节点,自动选择,直连]
+    proxies: [手动选择,香港,台湾,日本,新加坡,美国,其它地区,自动选择,DIRECT]
 
   - name: Telegram
     type: select
-    proxies: [手动选择,香港,台湾,日本,新加坡,美国,其它地区,全部节点,自动选择,直连]
+    proxies: [手动选择,香港,台湾,日本,新加坡,美国,其它地区,自动选择,DIRECT]
 
   - name: Twitter
     type: select
-    proxies: [手动选择,香港,台湾,日本,新加坡,美国,其它地区,全部节点,自动选择,直连]
+    proxies: [手动选择,香港,台湾,日本,新加坡,美国,其它地区,自动选择,DIRECT]
 
   - name: 哔哩哔哩
     type: select
-    proxies: [手动选择,香港,台湾,日本,新加坡,美国,其它地区,全部节点,自动选择,直连]
+    proxies: [手动选择,香港,台湾,日本,新加坡,美国,其它地区,自动选择,DIRECT]
 
   - name: 巴哈姆特
     type: select
-    proxies: [手动选择,香港,台湾,日本,新加坡,美国,其它地区,全部节点,自动选择,直连]
+    proxies: [手动选择,香港,台湾,日本,新加坡,美国,其它地区,自动选择,DIRECT]
 
   - name: YouTube
     type: select
-    proxies: [手动选择,香港,台湾,日本,新加坡,美国,其它地区,全部节点,自动选择,直连]
+    proxies: [手动选择,香港,台湾,日本,新加坡,美国,其它地区,自动选择,DIRECT]
 
   - name: NETFLIX
     type: select
-    proxies: [手动选择,香港,台湾,日本,新加坡,美国,其它地区,全部节点,自动选择,直连]
+    proxies: [手动选择,香港,台湾,日本,新加坡,美国,其它地区,自动选择,DIRECT]
 
   - name: Spotify
     type: select
-    proxies:  [手动选择,香港,台湾,日本,新加坡,美国,其它地区,全部节点,自动选择,直连]
+    proxies:  [手动选择,香港,台湾,日本,新加坡,美国,其它地区,自动选择,DIRECT]
 
   - name: Github
     type: select
-    proxies:  [手动选择,香港,台湾,日本,新加坡,美国,其它地区,全部节点,自动选择,直连]
+    proxies:  [手动选择,香港,台湾,日本,新加坡,美国,其它地区,自动选择,DIRECT]
 
   - name: 国内
     type: select
-    proxies:  [直连,手动选择,香港,台湾,日本,新加坡,美国,其它地区,全部节点,自动选择]
+    proxies:  [DIRECT,手动选择,香港,台湾,日本,新加坡,美国,其它地区,自动选择]
 
   - name: 其他
     type: select
-    proxies:  [手动选择,香港,台湾,日本,新加坡,美国,其它地区,全部节点,自动选择,直连]
+    proxies:  [手动选择,香港,台湾,日本,新加坡,美国,其它地区,自动选择,DIRECT]
 
   #分隔,下面是地区分组
   - name: 香港
@@ -153,7 +153,7 @@ proxy-groups:
 
 
 rules:
-  - RULE-SET,private_ip,直连,no-resolve
+  - RULE-SET,private_ip,DIRECT,no-resolve
   - RULE-SET,github_domain,Github
   - RULE-SET,twitter_domain,Twitter
   - RULE-SET,youtube_domain,YouTube
