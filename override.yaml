@@ -160,6 +160,7 @@ proxy-groups:
 
 rules:
   - RULE-SET,private_ip,DIRECT,no-resolve
+  - DOMAIN-REGEX,^derp.*tailscale.com,DIRECT
   - RULE-SET,ai_suite,AI Suite
   - RULE-SET,github_domain,Github
   - RULE-SET,twitter_domain,Twitter
