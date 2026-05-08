@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "skills": {
+    "ios-rule-finder": {
+      "source": "wsyzxjn/skills",
+      "sourceType": "github",
+      "skillPath": "skills/find-proxy-rules/SKILL.md",
+      "computedHash": "071608fd22ce709dcdedc16addc0d6a56989ee789ea9dadd2df05d835454cbb8"
+    }
+  }
+}
