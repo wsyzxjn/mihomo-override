@@ -22,15 +22,30 @@ function main(config) {
     if (proxy.name.includes("落地")) {
       const location = locations.find((loc) => proxy.name.includes(loc));
       if (location && hasLocationGroup(location)) {
-        proxy["dialer-proxy"] = location;
+        proxy["dialer-proxy"] = ` ${location}落地中转节点`;
+
+        const proxyGroups = config["proxy-groups"];
 
         if (hasResidentialGroup(location)) {
-          config["proxy-groups"][`${location}落地`].proxies.push(proxy.name);
+          proxyGroups
+            .find((group) => group.name === `${location}落地`)
+            .proxies.push(proxy.name);
         } else {
-          config["proxy-groups"].push({
+          proxyGroups.push({
             name: `${location}落地`,
             type: "select",
             proxies: [proxy.name],
+          });
+        }
+
+        if (
+          !proxyGroups.some((group) => group.name === `${location}落地中转节点`)
+        ) {
+          proxyGroups.push({
+            name: `${location}落地中转节点`,
+            type: "select",
+            "include-all": true,
+            "exclude-filter": "落地",
           });
         }
       } else {
