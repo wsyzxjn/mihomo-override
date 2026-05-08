@@ -12,7 +12,8 @@ function main(config) {
     for (const group of config["proxy-groups"]) {
       if (skipCallback?.(group)) continue;
       const existingProxies = new Set(group.proxies);
-      existingProxies.add(...proxyNames);
+      existingProxies.delete("DIRECT");
+      [...proxyNames, "DIRECT"].forEach((proxy) => existingProxies.add(proxy));
       group.proxies = [...existingProxies];
     }
   };
