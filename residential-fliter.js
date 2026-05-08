@@ -22,7 +22,7 @@ function main(config) {
     if (proxy.name.includes("落地")) {
       const location = locations.find((loc) => proxy.name.includes(loc));
       if (location && hasLocationGroup(location)) {
-        proxy["dialer-proxy"] = ` ${location}落地中转节点`;
+        proxy["dialer-proxy"] = `${location}落地中转节点`;
 
         const proxyGroups = config["proxy-groups"];
 
