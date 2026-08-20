@@ -178,14 +178,6 @@ proxy-groups:
 rules:
   - RULE-SET,private_ip,DIRECT,no-resolve
   - DOMAIN-REGEX,^derp.*tailscale.com,DIRECT
-  - DST-PORT,10001-65535,全端口
-  - DST-PORT,22,全端口
-  - DST-PORT,2222,全端口
-  - DST-PORT,3389,全端口
-  - DST-PORT,3306,全端口
-  - DST-PORT,6379,全端口
-  - DST-PORT,8080,全端口
-  - DST-PORT,8443,全端口
   - RULE-SET,ai_suite,AI Suite
   - RULE-SET,github_domain,Github
   - RULE-SET,twitter_domain,Twitter
