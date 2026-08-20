@@ -64,46 +64,5 @@ function main(config) {
     (group) => group.name.endsWith("落地") || group.type !== "select",
   );
 
-  // ikuu: no dest-port filter. Tag by server so they can be a dedicated group.
-  const isIkuu = (proxy) => {
-    const server = String(proxy.server || "");
-    return (
-      server.includes("v51124-4.qpon") || server.includes("rtysjur.quest")
-    );
-  };
-  let ikuuCount = 0;
-  for (const proxy of config.proxies) {
-    if (!isIkuu(proxy)) continue;
-    if (!proxy.name.startsWith("[ikuu] ")) {
-      proxy.name = `[ikuu] ${proxy.name}`;
-    }
-    ikuuCount += 1;
-  }
-  if (ikuuCount > 0) {
-    const groups = config["proxy-groups"];
-    if (!groups.some((group) => group.name === "ikuu")) {
-      const ikuuGroup = {
-        name: "ikuu",
-        type: "select",
-        "include-all": true,
-        filter: "(?i)\\[ikuu\\]",
-      };
-      const manualIdx = groups.findIndex((group) => group.name === "手动选择");
-      groups.splice(manualIdx >= 0 ? manualIdx + 1 : 0, 0, ikuuGroup);
-    }
-    for (const group of groups) {
-      if (!Array.isArray(group.proxies)) continue;
-      if (!group.proxies.includes("手动选择")) continue;
-      if (group.proxies.includes("ikuu")) continue;
-      const insertAt = group.proxies.indexOf("手动选择") + 1;
-      group.proxies.splice(insertAt, 0, "ikuu");
-    }
-    const extraRules = [
-      "DOMAIN,matsuri.imoutofu.me,ikuu",
-      "IP-CIDR,99.225.216.87/32,ikuu,no-resolve",
-    ];
-    config.rules = extraRules.concat(config.rules || []);
-  }
-
   return config;
 }
