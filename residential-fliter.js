@@ -1,6 +1,13 @@
 const RESIDENTIAL_PATTERN = /落地|家宽|住宅|家庭宽带|residential|home\s*broadband/i;
 const LOCATIONS = ["香港", "台湾", "日本", "韩国", "美国", "新加坡"];
-const HTTP_META_API = "http://127.0.0.1:9876";
+const SCRIPT_ARGUMENTS =
+  typeof $arguments === "object" && $arguments ? $arguments : {};
+const HTTP_META_API = String(
+  SCRIPT_ARGUMENTS.http_meta_api ?? "http://127.0.0.1:9876",
+).replace(/\/$/, "");
+const HTTP_META_AUTHORIZATION = String(
+  SCRIPT_ARGUMENTS.http_meta_authorization ?? "",
+);
 const PROBE_URL = "http://connectivitycheck.platform.hicloud.com/generate_204";
 const PROBE_STATUS = /^204$/;
 const PROBE_TIMEOUT = 8000;
@@ -76,6 +83,14 @@ async function runTasks(tasks, concurrency) {
   await Promise.all(workers);
 }
 
+function httpMetaHeaders() {
+  const headers = { "Content-Type": "application/json" };
+  if (HTTP_META_AUTHORIZATION) {
+    headers.Authorization = HTTP_META_AUTHORIZATION;
+  }
+  return headers;
+}
+
 function makeProbePair(relay, residential, pairIndex) {
   const relayIndex = pairIndex * 2;
   const relayProxy = { ...relay, name: `relay-${pairIndex}` };
@@ -99,7 +114,7 @@ async function probeBatch(pairs) {
     const response = await request({
       method: "post",
       url: `${HTTP_META_API}/start`,
-      headers: { "Content-Type": "application/json" },
+      headers: httpMetaHeaders(),
       body: JSON.stringify({ proxies, timeout: lifetime }),
       timeout: 15000,
       retries: 0,
@@ -150,7 +165,7 @@ async function probeBatch(pairs) {
         await request({
           method: "post",
           url: `${HTTP_META_API}/stop`,
-          headers: { "Content-Type": "application/json" },
+          headers: httpMetaHeaders(),
           body: JSON.stringify({ pid: [pid] }),
           timeout: 10000,
         });
