@@ -67,7 +67,7 @@ proxy-groups:
     include-all: true
     proxies: [家宽, DIRECT]
 
-  # Nodes are populated by residential-fliter.js from providers that allow all ports.
+  # Nodes are populated by residential-fliter.js after real relay-to-residential requests.
   - name: 全端口
     type: select
     proxies: []
