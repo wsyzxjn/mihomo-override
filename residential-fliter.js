@@ -8,6 +8,9 @@ const HTTP_META_API = String(
 const HTTP_META_AUTHORIZATION = String(
   SCRIPT_ARGUMENTS.http_meta_authorization ?? "",
 );
+const HTTP_META_PROXY_HOST = String(
+  SCRIPT_ARGUMENTS.http_meta_proxy_host ?? "127.0.0.1",
+);
 const PROBE_URL = "http://connectivitycheck.platform.hicloud.com/generate_204";
 const PROBE_STATUS = /^204$/;
 const PROBE_TIMEOUT = 8000;
@@ -140,7 +143,7 @@ async function probeBatch(pairs) {
           const startedAt = Date.now();
           const probe = await request({
             method: "head",
-            proxy: `http://127.0.0.1:${port}`,
+            proxy: `http://${HTTP_META_PROXY_HOST}:${port}`,
             url: PROBE_URL,
             retries: 2,
           });
