@@ -225,7 +225,7 @@ async function probeFullPortRelays(config) {
   }
 
   $substore.info(
-    `[全端口] 候选 ${candidates.length}，家宽/落地 ${residential.length}，需探测 ${uncachedPairs.length} 条链路`,
+    `[全端口] 候选 ${candidates.length}，家宽/落地 ${residential.length}，需探测 ${uncachedPairs.length} 条链路，数据端点 ${HTTP_META_PROXY_HOST}`,
   );
 
   let hasUnknown = false;
